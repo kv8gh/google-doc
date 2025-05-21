@@ -2,6 +2,8 @@
 
 import TaskList from '@tiptap/extension-task-list'
 import TaskItem from '@tiptap/extension-task-item'
+import Image from '@tiptap/extension-image'
+import ImageResize from "tiptap-extension-resize-image"
 import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
@@ -19,6 +21,8 @@ export const Editor = ()=>{
         },
         extensions: [
             StarterKit,
+            Image,
+            ImageResize,
             Table,
             TableCell,
             TableHeader,
