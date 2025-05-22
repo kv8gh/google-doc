@@ -5,6 +5,7 @@ import TaskItem from '@tiptap/extension-task-item'
 import Highlight from '@tiptap/extension-highlight'
 import { Color } from '@tiptap/extension-color'
 import Image from '@tiptap/extension-image'
+import Link from '@tiptap/extension-link'
 import FontFamily from '@tiptap/extension-font-family'
 import Underline from '@tiptap/extension-underline'
 import ImageResize from "tiptap-extension-resize-image"
@@ -54,6 +55,11 @@ export const Editor = ()=>{
         },
         extensions: [
             StarterKit,
+            Link.configure({
+                openOnClick: false,
+                autolink:true,
+                defaultProtocol: "https"
+            }),
             Color,
             Highlight.configure({
                 multicolor: true,
