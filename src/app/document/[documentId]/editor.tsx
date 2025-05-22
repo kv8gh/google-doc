@@ -2,6 +2,7 @@
 
 import TaskList from '@tiptap/extension-task-list'
 import TaskItem from '@tiptap/extension-task-item'
+import TextAlign from '@tiptap/extension-text-align'
 import Highlight from '@tiptap/extension-highlight'
 import { Color } from '@tiptap/extension-color'
 import Image from '@tiptap/extension-image'
@@ -55,6 +56,9 @@ export const Editor = ()=>{
         },
         extensions: [
             StarterKit,
+            TextAlign.configure({
+                types: ['heading','paragraph']
+            }),
             Link.configure({
                 openOnClick: false,
                 autolink:true,
