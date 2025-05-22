@@ -2,6 +2,8 @@
 
 import TaskList from '@tiptap/extension-task-list'
 import TaskItem from '@tiptap/extension-task-item'
+import Highlight from '@tiptap/extension-highlight'
+import { Color } from '@tiptap/extension-color'
 import Image from '@tiptap/extension-image'
 import FontFamily from '@tiptap/extension-font-family'
 import Underline from '@tiptap/extension-underline'
@@ -52,6 +54,10 @@ export const Editor = ()=>{
         },
         extensions: [
             StarterKit,
+            Color,
+            Highlight.configure({
+                multicolor: true,
+            }),
             FontFamily,
             TextStyle,
             Underline,
