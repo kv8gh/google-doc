@@ -24,11 +24,19 @@ import { LineHeightExtension } from '@/app/extensions/line-height';
 import { Ruler } from './ruler';
 import { Threads } from './threads';
 import { useStorage } from '@liveblocks/react/suspense';
+import { LEFT_MARGIN_DEFAULT, RIGHT_MARGIN_DEFAULT } from '@/constants/margins';
 
-export const Editor = ()=>{
-    const leftMargin = useStorage((root)=> root.leftMargin);
-    const rightMargin = useStorage((root)=>root.rightMargin);
-    const liveblocks = useLiveblocksExtension();
+interface EditorProps {
+    initialContent?: string | undefined;
+}
+
+export const Editor = ({initialContent}:EditorProps)=>{
+    const leftMargin = useStorage((root)=> root.leftMargin) ?? LEFT_MARGIN_DEFAULT;
+    const rightMargin = useStorage((root)=>root.rightMargin)?? RIGHT_MARGIN_DEFAULT;
+    const liveblocks = useLiveblocksExtension({
+        initialContent,
+        offlineSupport_experimental:true,
+    });
     const { setEditor } = useEditorStore();
 
     const editor = useEditor({

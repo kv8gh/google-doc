@@ -36,6 +36,7 @@ export const DocumentInput = ({title,id}: DocumentInputProps) =>{
     })
 
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>)=>{
+        e.preventDefault();
         setIsPending(true);
         mutate({id,title:value})
         .then(()=>{
