@@ -21,7 +21,7 @@ export async function POST(req: Request){
     }
 
     const org = sessionClaims.o as orgType;
-    const org_id = org.id;
+    const org_id = (org?.id) ?? "";
 
     const user = await currentUser();
     if(!user){
